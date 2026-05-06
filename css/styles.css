@@ -131,14 +131,67 @@ section {
 }
 
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1920x1080?text=Torre+y+Campo');
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../resources/hero.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     color: white;
 }
 
+.lanterns-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.lantern {
+    position: absolute;
+    bottom: -50px;
+    width: 20px;
+    height: 30px;
+    background: #ffeb3b;
+    border-radius: 5px 5px 3px 3px;
+    box-shadow: 0 0 20px 8px rgba(255, 235, 59, 0.6);
+    opacity: 0;
+    animation: float-up infinite ease-in;
+}
+
+/* Variaciones de linternas */
+.lantern.l1 { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.lantern.l2 { left: 30%; animation-duration: 10s; animation-delay: 2s; width: 15px; height: 25px; }
+.lantern.l3 { left: 50%; animation-duration: 7s; animation-delay: 4s; width: 25px; height: 35px; }
+.lantern.l4 { left: 70%; animation-duration: 11s; animation-delay: 1s; }
+.lantern.l5 { left: 85%; animation-duration: 9s; animation-delay: 3s; width: 18px; height: 28px; }
+.lantern.l6 { left: 20%; animation-duration: 12s; animation-delay: 5s; }
+.lantern.l7 { left: 60%; animation-duration: 8.5s; animation-delay: 6s; width: 15px; height: 25px; }
+.lantern.l8 { left: 80%; animation-duration: 10.5s; animation-delay: 7s; }
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(20deg);
+        opacity: 0;
+    }
+}
+
 .intro-card {
+    position: relative;
+    z-index: 2;
     background: rgba(255, 255, 255, 0.2);
     padding: 2rem;
     border-radius: 20px;
