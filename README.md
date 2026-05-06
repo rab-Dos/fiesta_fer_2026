@@ -5,13 +5,16 @@
 ## 🚀 Características Principales
 
 - **Diseño Temático "Rapunzel"**: Colores basados en el vestido de la princesa (morados, violetas) y su magia (dorados y amarillos brillantes).
+- **Metaetiquetas Open Graph (SEO y Redes)**: Configuradas para generar una elegante tarjeta de visualización al compartir el enlace en aplicaciones como WhatsApp o Facebook.
 - **Animaciones CSS Avanzadas**:
   - Pantalla de carga (Splash Screen).
   - Linternas mágicas flotando hacia el cielo.
   - Hojas y confeti cayendo suavemente.
+  - Fotografía principal de hero con partículas destellantes (brillos de diamante).
   - Destellos de diamante en la galería de fotos.
   - Bordes giratorios mágicos en las tarjetas de información (`conic-gradient`).
-  - Lámpara con efecto de fuego parpadeante y fuegos artificiales realistas.
+  - Lámpara con efecto de fuego parpadeante y luces de luciérnaga.
+  - Fuegos artificiales hiperrealistas (con múltiples sombras escalonadas en CSS) para la explosión final de Despedida.
   - Personajes interactivos (Pascal saltando).
 - **Navegación Dinámica**: Botones flotantes (arriba/abajo) para mover al usuario suavemente a través de las distintas secciones.
 - **Cuenta Regresiva**: Un contador en vivo (JavaScript Vanilla) configurado para la fecha del gran evento (23 de Mayo de 2026).
@@ -40,8 +43,11 @@ Invitación Fer/
 │
 └── resources/          # Carpeta destinada (local) a los activos del proyecto.
     ├── hero.jpg
+    ├── hero2.png
     ├── bottom.jpg
     ├── fer1.jpeg
+    ├── fer2.jpeg
+    ├── fer3.jpeg
     ├── party-icon.ico
     ├── pascal.png
     ├── sol-rapunzel.png
