@@ -282,18 +282,105 @@ section {
     color: var(--purple-royal);
 }
 
+/* Section: Evento */
+.info-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../resources/seccion2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.text-white {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
 .details-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .detail-item {
-    background: white;
+    position: relative;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    z-index: 2;
+    color: white;
+}
+
+/* Efecto borde giratorio copiado de intro-card */
+.detail-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(var(--gold), var(--purple-royal), var(--sun-glow), var(--gold));
+    z-index: -2;
+    animation: spin-card-border 3s linear infinite;
+}
+
+.detail-item::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: linear-gradient(45deg, #4a148c, #6a1b9a, #4a148c);
+    background-size: 200% 200%;
+    border-radius: 11px;
+    z-index: -1;
+    animation: animate-purple-bg 5s ease infinite;
+}
+
+.detail-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--gold);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-family: 'Dancing Script', cursive;
+}
+
+.detail-item p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Animación Hojas Cayendo */
+.leaves-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+}
+
+.leaf {
+    position: absolute;
+    top: -10%;
+    font-size: 2rem;
+    opacity: 0.8;
+    animation: falling-leaves linear infinite;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+
+.leaf.lf1 { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.leaf.lf2 { left: 30%; animation-duration: 10s; animation-delay: 2s; font-size: 1.5rem; }
+.leaf.lf3 { left: 50%; animation-duration: 7s; animation-delay: 4s; font-size: 2.5rem; }
+.leaf.lf4 { left: 70%; animation-duration: 11s; animation-delay: 1s; font-size: 1.8rem; }
+.leaf.lf5 { left: 85%; animation-duration: 9s; animation-delay: 3s; }
+.leaf.lf6 { left: 20%; animation-duration: 12s; animation-delay: 5s; }
+
+@keyframes falling-leaves {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.9; }
+    90% { opacity: 0.9; }
+    100% { transform: translate(50px, 110vh) rotate(360deg); opacity: 0; }
 }
 
 .gallery-grid {
@@ -382,6 +469,18 @@ section {
 }
 
 /* Responsive */
+@media (min-width: 768px) {
+    /* Ajustes Tableta Sección Evento */
+    .detail-item h3 { font-size: 2.2rem; }
+    .detail-item p { font-size: 1.3rem; }
+}
+
+@media (min-width: 1024px) {
+    /* Ajustes Escritorio Sección Evento */
+    .detail-item h3 { font-size: 2.8rem; }
+    .detail-item p { font-size: 1.6rem; }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         position: absolute;
