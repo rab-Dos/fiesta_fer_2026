@@ -546,6 +546,180 @@ section {
     100% { transform: scale(0) rotate(90deg); opacity: 0; }
 }
 
+/* Section: Despedida (Farewell) */
+.farewell-section {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../resources/bottom.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.farewell-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    flex-wrap: wrap; /* Para que en móviles se apilen */
+}
+
+/* Tarjeta Central Heredando borde giratorio (detail-item) */
+.farewell-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+    text-align: center;
+    color: white;
+    padding: 2.5rem;
+}
+
+.farewell-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.farewell-card .signature {
+    margin-top: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+/* Lámpara Mágica Izquierda */
+.farewell-lantern {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    order: -1; /* Para mantenerlo primero si es flex */
+}
+
+.lantern-body {
+    width: 80px;
+    height: 120px;
+    background: rgba(255, 235, 59, 0.3);
+    border: 2px solid var(--gold);
+    border-radius: 15px 15px 5px 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.6), inset 0 0 20px rgba(255, 140, 0, 0.8);
+    animation: candle-flicker 2s infinite alternate;
+}
+
+.lantern-sun {
+    width: 50px;
+    height: auto;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px var(--sun-glow));
+}
+
+@keyframes candle-flicker {
+    0% { box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.5), inset 0 0 15px rgba(255, 140, 0, 0.6); }
+    100% { box-shadow: 0 0 40px 15px rgba(255, 215, 0, 0.8), inset 0 0 25px rgba(255, 140, 0, 1); }
+}
+
+/* Pascal Derecha */
+.farewell-pascal {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.farewell-pascal img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+    animation: pascal-bounce 4s infinite ease-in-out;
+}
+
+@keyframes pascal-bounce {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Fuegos artificiales más realistas */
+.fireworks-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+        0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+        0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+        0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
+    animation: realistic-boom 2.5s ease-out infinite;
+    opacity: 0;
+}
+
+.firework::before, .firework::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: inherit;
+    animation: inherit;
+}
+
+.firework.fw1 { top: 25%; left: 25%; color: var(--gold); animation-delay: 0s; }
+.firework.fw2 { top: 40%; left: 75%; color: #ff9100; animation-delay: 1.2s; }
+.firework.fw3 { top: 20%; left: 60%; color: #f50057; animation-delay: 0.6s; }
+.firework.fw4 { top: 55%; left: 15%; color: #00e5ff; animation-delay: 1.8s; }
+.firework.fw5 { top: 30%; left: 45%; color: var(--light-yellow); animation-delay: 2.2s; }
+
+@keyframes realistic-boom {
+    0% { 
+        transform: scale(0);
+        opacity: 1;
+        box-shadow: 
+            0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor,
+            0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor,
+            0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor,
+            0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% { 
+        transform: scale(1);
+        opacity: 0;
+        box-shadow: 
+            -100px -100px 0 -2px currentColor, 100px -100px 0 -2px currentColor, -100px 100px 0 -2px currentColor, 100px 100px 0 -2px currentColor,
+            0 -120px 0 -2px currentColor, 0 120px 0 -2px currentColor, -120px 0 0 -2px currentColor, 120px 0 0 -2px currentColor,
+            -70px -120px 0 -2px currentColor, 70px -120px 0 -2px currentColor, -70px 120px 0 -2px currentColor, 70px 120px 0 -2px currentColor,
+            -120px -70px 0 -2px currentColor, 120px -70px 0 -2px currentColor, -120px 70px 0 -2px currentColor, 120px 70px 0 -2px currentColor;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--purple-royal);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    z-index: 10;
+}
+
 /* Animations */
 .animate-pop {
     animation: popUp 1s ease-out;
@@ -626,6 +800,13 @@ section {
     /* Ajustes Mapa y Tarjeta Lugar */
     .map-container { height: 450px; width: 90%; margin: 0 auto; }
     .location-card { padding: 3rem; }
+
+    /* Ajustes Despedida */
+    .farewell-card p { font-size: 1.5rem; }
+    .farewell-card .signature { font-size: 2.5rem; }
+    .lantern-body { width: 100px; height: 150px; }
+    .lantern-sun { width: 65px; }
+    .farewell-pascal { width: 140px; }
 }
 
 @media (min-width: 1024px) {
@@ -635,6 +816,13 @@ section {
 
     /* Ajustes Mapa y Tarjeta Lugar */
     .map-container { height: 550px; width: 80%; margin: 0 auto; }
+
+    /* Ajustes Despedida */
+    .farewell-card p { font-size: 1.8rem; }
+    .farewell-card .signature { font-size: 3.2rem; }
+    .lantern-body { width: 120px; height: 180px; }
+    .lantern-sun { width: 80px; }
+    .farewell-pascal { width: 180px; }
 }
 
 @media (max-width: 768px) {
