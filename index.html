@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Fiesta de Fernanda!</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="resources/party-icon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -116,11 +116,29 @@
 
         <!-- Section 4: Gallery -->
         <section id="galeria" class="gallery-section">
-            <h2 class="section-title">Momentos Mágicos</h2>
+            <!-- Brillos de Diamante -->
+            <div class="sparkles-container">
+                <div class="sparkle s1">✨</div>
+                <div class="sparkle s2">✨</div>
+                <div class="sparkle s3">✨</div>
+                <div class="sparkle s4">✨</div>
+                <div class="sparkle s5">✨</div>
+                <div class="sparkle s6">✨</div>
+                <div class="sparkle s7">✨</div>
+                <div class="sparkle s8">✨</div>
+            </div>
+
+            <h2 class="section-title text-white">Momentos Mágicos</h2>
             <div class="gallery-grid">
-                <img src="https://via.placeholder.com/300x400?text=Fer+Princesa" alt="Foto de Fer">
-                <img src="https://via.placeholder.com/300x400?text=Aventura" alt="Foto de Fer">
-                <img src="https://via.placeholder.com/300x400?text=Celebración" alt="Foto de Fer">
+                <div class="photo-frame detail-item">
+                    <img src="resources/fer1.jpeg" alt="Foto de Fer 1">
+                </div>
+                <div class="photo-frame detail-item">
+                    <img src="resources/fer2.jpeg" alt="Foto de Fer 2">
+                </div>
+                <div class="photo-frame detail-item">
+                    <img src="resources/fer3.jpeg" alt="Foto de Fer 3">
+                </div>
             </div>
         </section>
 
@@ -134,9 +152,15 @@
 
         <!-- Section Navigation -->
         <div id="section-nav" class="section-nav">
-            <button id="back-to-top" title="Volver al inicio" class="btn-yellow">⇪</button>
-            <button id="nav-up" title="Sección anterior">↑</button>
-            <button id="nav-down" title="Siguiente sección">↓</button>
+            <button id="back-to-top" title="Volver al inicio" class="btn-yellow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </button>
+            <button id="nav-up" title="Sección anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+            </button>
+            <button id="nav-down" title="Siguiente sección">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </button>
         </div>
     </div>
 
