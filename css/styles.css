@@ -383,6 +383,73 @@ section {
     100% { transform: translate(50px, 110vh) rotate(360deg); opacity: 0; }
 }
 
+/* Section: Ubicación */
+.location-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../resources/lugar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.location-card {
+    max-width: 600px;
+    margin: 0 auto 3rem auto; /* Separación del mapa */
+    color: white;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+/* Animación Confeti Cayendo */
+.confetti-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+}
+
+.confetti {
+    position: absolute;
+    top: -10%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--gold);
+    opacity: 0;
+    animation: falling-confetti linear infinite;
+}
+
+.confetti:nth-child(odd) { background-color: #ff9100; border-radius: 50%; }
+.confetti:nth-child(3n) { background-color: #f50057; }
+.confetti:nth-child(4n) { background-color: var(--purple-royal); }
+
+.confetti.c1 { left: 10%; animation-duration: 4s; animation-delay: 0s; }
+.confetti.c2 { left: 20%; animation-duration: 5s; animation-delay: 1s; width: 12px; height: 12px; }
+.confetti.c3 { left: 30%; animation-duration: 3s; animation-delay: 2s; }
+.confetti.c4 { left: 40%; animation-duration: 6s; animation-delay: 0.5s; width: 8px; height: 8px; }
+.confetti.c5 { left: 50%; animation-duration: 4.5s; animation-delay: 3s; }
+.confetti.c6 { left: 60%; animation-duration: 5.5s; animation-delay: 1.5s; }
+.confetti.c7 { left: 70%; animation-duration: 3.5s; animation-delay: 2.5s; }
+.confetti.c8 { left: 80%; animation-duration: 4s; animation-delay: 0.8s; }
+.confetti.c9 { left: 90%; animation-duration: 6.5s; animation-delay: 1.2s; }
+.confetti.c10 { left: 95%; animation-duration: 5s; animation-delay: 2.2s; }
+
+@keyframes falling-confetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 1; }
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -473,12 +540,19 @@ section {
     /* Ajustes Tableta Sección Evento */
     .detail-item h3 { font-size: 2.2rem; }
     .detail-item p { font-size: 1.3rem; }
+
+    /* Ajustes Mapa y Tarjeta Lugar */
+    .map-container { height: 450px; width: 90%; margin: 0 auto; }
+    .location-card { padding: 3rem; }
 }
 
 @media (min-width: 1024px) {
     /* Ajustes Escritorio Sección Evento */
     .detail-item h3 { font-size: 2.8rem; }
     .detail-item p { font-size: 1.6rem; }
+
+    /* Ajustes Mapa y Tarjeta Lugar */
+    .map-container { height: 550px; width: 80%; margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
