@@ -47,19 +47,52 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownDisplay.innerHTML = `Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
 
-    // 4. Back to Top Button
+    // 4. Section Navigation Up/Down
+    const sections = ['intro', 'evento', 'ubicacion', 'galeria', 'despedida'];
+    let currentSectionIndex = 0;
+    const btnUp = document.getElementById('nav-up');
+    const btnDown = document.getElementById('nav-down');
     const backToTopBtn = document.getElementById('back-to-top');
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'block';
+    function updateNavButtons() {
+        btnUp.disabled = currentSectionIndex === 0;
+        btnDown.disabled = currentSectionIndex === sections.length - 1;
+        
+        if (currentSectionIndex > 0) {
+            backToTopBtn.classList.add('visible');
         } else {
-            backToTopBtn.style.display = 'none';
+            backToTopBtn.classList.remove('visible');
         }
+    }
+
+    function scrollToSection(index) {
+        if (index >= 0 && index < sections.length) {
+            currentSectionIndex = index;
+            document.getElementById(sections[currentSectionIndex]).scrollIntoView({ behavior: 'smooth' });
+            updateNavButtons();
+        }
+    }
+
+    btnUp.addEventListener('click', () => scrollToSection(currentSectionIndex - 1));
+    btnDown.addEventListener('click', () => scrollToSection(currentSectionIndex + 1));
+    backToTopBtn.addEventListener('click', () => scrollToSection(0));
+
+    // Opcional: Actualizar el índice al hacer scroll manual
+    window.addEventListener('scroll', () => {
+        let scrollPosition = window.scrollY + window.innerHeight / 2;
+        sections.forEach((id, index) => {
+            const section = document.getElementById(id);
+            if (section) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionIndex = index;
+                    updateNavButtons();
+                }
+            }
+        });
     });
 
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    updateNavButtons();
 });
 
