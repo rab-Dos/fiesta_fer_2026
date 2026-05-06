@@ -42,19 +42,30 @@ h1, h2, h3, .royal-text {
     transition: opacity 1s ease-out, visibility 1s;
 }
 
-.sun-animation {
-    width: 100px;
-    height: 100px;
-    background: var(--gold);
-    border-radius: 50%;
-    box-shadow: 0 0 50px var(--sun-glow);
-    animation: pulse 2s infinite alternate;
-    margin-bottom: 2rem;
+#splash-screen .royal-text {
+    color: white;
+    font-size: 4.5rem;
+    text-align: center;
+    padding: 0 2rem;
 }
 
-@keyframes pulse {
-    from { transform: scale(1); box-shadow: 0 0 20px var(--sun-glow); }
-    to { transform: scale(1.2); box-shadow: 0 0 60px var(--sun-glow); }
+.sun-animation {
+    width: 150px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 15px var(--sun-glow));
+    animation: sun-magic 3s infinite alternate ease-in-out;
+}
+
+@keyframes sun-magic {
+    from { 
+        transform: scale(1) rotate(-5deg); 
+        filter: drop-shadow(0 0 10px var(--sun-glow)); 
+    }
+    to { 
+        transform: scale(1.15) rotate(5deg); 
+        filter: drop-shadow(0 0 35px var(--sun-glow)); 
+    }
 }
 
 .hidden {
@@ -229,6 +240,11 @@ section {
 
     .section-title {
         font-size: 2rem;
+    }
+
+    #splash-screen .royal-text {
+        font-size: 3rem;
+        padding: 0 1.5rem;
     }
 }
 
