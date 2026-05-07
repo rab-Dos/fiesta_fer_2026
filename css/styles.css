@@ -191,7 +191,9 @@ section {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../resources/hero.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 6rem; /* Compensa la barra de navegación para que no tape contenido */
+    padding-bottom: 2rem;
     color: white;
 }
 
@@ -248,7 +250,7 @@ section {
 .hero-image-wrapper {
     position: relative;
     z-index: 5;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     display: inline-block;
 }
 
