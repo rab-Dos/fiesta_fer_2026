@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         splash.classList.add('hidden');
         mainContent.classList.remove('hidden');
+        document.body.classList.remove('no-scroll');
         // Quitar del DOM después de la transición
         setTimeout(() => splash.style.display = 'none', 1000);
     }, 3000);

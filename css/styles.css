@@ -22,6 +22,10 @@ body {
     overflow-x: hidden;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 h1, h2, h3, .royal-text {
     font-family: 'Dancing Script', cursive;
 }
@@ -313,6 +317,40 @@ section {
 
 .intro-card p {
     font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Botón de boletos en la tarjeta de Intro */
+.ticket-btn {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--gold);
+    color: var(--purple-royal); /* Contraste oscuro contra amarillo/dorado */
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.ticket-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 235, 59, 0.6);
+    /* Degradado animado con oro, sol y un ligero naranja complementario */
+    background: linear-gradient(90deg, var(--gold), #ff8c00, var(--sun-glow), var(--gold));
+    background-size: 300% 100%;
+    animation: gradient-btn-shift 3s infinite alternate ease-in-out;
+    color: #4a148c;
+    border-color: #fff;
+}
+
+@keyframes gradient-btn-shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
 /* Tableta (MÁS GRANDE) */
