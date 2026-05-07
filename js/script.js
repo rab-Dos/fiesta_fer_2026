@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        countdownDisplay.innerHTML = `Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        countdownDisplay.innerHTML = `Faltan: ${days}d ${hours}h ${minutes}m <span class="seconds-small">${seconds}s</span>`;
     }, 1000);
 
     // 4. Section Navigation Up/Down
@@ -93,6 +93,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 5. Clicks accidentales en el Mapa (Ghost clicks y Scroll Trap)
+    const mapContainer = document.querySelector('.map-container');
+    if (mapContainer) {
+        const iframe = mapContainer.querySelector('iframe');
+        iframe.style.pointerEvents = 'none'; // Desactiva por defecto
+        
+        mapContainer.addEventListener('click', () => {
+            iframe.style.pointerEvents = 'auto'; // Activa tras el primer click intencional
+        });
+
+        mapContainer.addEventListener('mouseleave', () => {
+            iframe.style.pointerEvents = 'none'; // Desactiva al salir (desktop)
+        });
+    }
 
     updateNavButtons();
 });

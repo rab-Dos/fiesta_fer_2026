@@ -143,6 +143,16 @@ h1, h2, h3, .royal-text {
     font-size: 0.9rem;
     font-weight: bold;
     color: var(--gold);
+    white-space: nowrap; /* Evita que el texto caiga a un segundo renglón */
+    font-variant-numeric: tabular-nums; /* Evita que el ancho de los números baile */
+}
+
+#countdown-nav .seconds-small {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    display: inline-block;
+    vertical-align: baseline;
+    min-width: 1.2rem; /* Mantener espacio estático de 2 dígitos */
 }
 
 /* Sections */
